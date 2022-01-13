@@ -1,14 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { setUserName } from '../../store/actions/setUserName';
 import { fetchUserData } from '../../store/actions/fetchUserData';
+import { setDataNull } from '../../store/actions/setDataNull';
 
 import './searchForm.css';
 
 const SearchForm = () => {
   let dispatch = useDispatch();
-  let user = useSelector((state) => state.userReducer.userName);
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
@@ -16,19 +15,24 @@ const SearchForm = () => {
     }
   };
 
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    if (e.target.value.length === 0) {
+      dispatch(setDataNull());
+    }
+  };
+
   return (
     <div>
       <form className="searchForm">
         <input
-          onBlur={(e) => dispatch(setUserName(e.target.value))}
+          onBlur={(e) => dispatch(fetchUserData(e.target.value))}
           onKeyDown={(e) => handleKeyPress(e)}
           type="text"
         />
-        <input
-          onClick={dispatch(fetchUserData(user))}
-          type="button"
-          value="Search"
-        />
+        <button onClick={(e) => handleOnClick(e)} type="submit">
+          Search
+        </button>
       </form>
     </div>
   );
