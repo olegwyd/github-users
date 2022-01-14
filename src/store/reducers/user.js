@@ -1,6 +1,7 @@
 let initialState = {
   userName: '',
   userData: null,
+  savedUsers: [],
 };
 
 const userReducer = (state = initialState, action) => {
@@ -14,6 +15,18 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         userData: null,
+      };
+    case 'SET_USER_NAME':
+      return {
+        ...state,
+        userName: action.payload,
+      };
+    case 'ADD_USER_TO_SAVED':
+      return {
+        ...state,
+        savedUsers: state.savedUsers.includes(state.userName)
+          ? [...state.savedUsers]
+          : [...state.savedUsers, action.payload],
       };
     default:
       return state;

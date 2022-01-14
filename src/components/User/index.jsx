@@ -1,18 +1,39 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { addUserToSaved } from '../../store/actions/addUserToSaved';
+
+import './user.css';
 
 const User = () => {
   let userData = useSelector((state) => state.userReducer.userData);
-  console.log(userData);
+  let userName = useSelector((state) => state.userReducer.userName);
+  const dispatch = useDispatch();
+
+  const handleOnClick = () => {
+    dispatch(addUserToSaved(userName));
+  };
   return (
-    <div>
-      <p>Name: {userData?.data?.name}</p>
-      <p>username: {userData?.data?.login}</p>
-      <p>Followers: {userData?.data?.followers}</p>
-      <p>Following: {userData?.data?.following}</p>
-      <p>Repositories count: {userData?.data?.public_repos}</p>
-      <img src={userData?.data?.avatar_url} alt="User avatar" />
-    </div>
+    <>
+      <div className="user">
+        <img
+          src={userData?.avatar_url}
+          alt="User avatar"
+          className="user__avatar"
+        />
+
+        <div className="user__info">
+          {userData?.name ? <p>Name: {userData?.name}</p> : null}
+          <p>username: {userData?.login}</p>
+          <p>Followers: {userData?.followers}</p>
+          <p>Following: {userData?.following}</p>
+          <p>Repositories count: {userData?.public_repos}</p>
+          <button onClick={() => handleOnClick()} className="user__button">
+            Save
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 

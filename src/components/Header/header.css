@@ -1,9 +1,17 @@
 .header {
-    width: 100%;
-    color: #fff;
-    font-size: 30px;
-    line-height: 60px;
-    padding: 10px;
-    padding-left: 20px;
-    background-color: rgb(26, 18, 18);
+  display: flex;
+  justify-content: space-between;
+  width: 98%;
+  color: #fff;
+  font-size: 30px;
+  line-height: 60px;
+  padding: 10px;
+  padding-left: 20px;
+  background-color: rgb(26, 18, 18);
+}
+
+.header__savedUsersCount {
+  font-size: 20px;
+  padding-right: 20px;
+  cursor: pointer;
 }

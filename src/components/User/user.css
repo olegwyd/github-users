@@ -1,0 +1,38 @@
+.user {
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+}
+
+.user__avatar {
+  width: 35%;
+}
+
+.user__info {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 10px;
+  width: 60%;
+}
+
+.user__info p {
+  width: 60%;
+  padding: 0;
+  margin: 0;
+}
+
+.user__button {
+  width: 100px;
+  background-color: rgb(26, 18, 18);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 12px 26px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}

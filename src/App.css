@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  margin-left: 15%;
+}
+
+.root {
+  height: 100%;
+}

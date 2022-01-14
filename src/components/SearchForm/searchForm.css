@@ -1,3 +1,25 @@
 .searchForm {
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0;
+}
+
+.searchForm__input {
+  width: 60%;
+  height: 34px;
+  margin-right: 12px;
+  border-radius: 12px;
+}
+
+.searchForm__button {
+  background-color: rgb(26, 18, 18);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }
